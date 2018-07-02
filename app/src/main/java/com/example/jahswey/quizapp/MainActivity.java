@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.RadioGroup;
+import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,10 +25,18 @@ public class MainActivity extends AppCompatActivity {
         int question2 = q2();
 
 
+
         //Question3
         CheckBox editSoftware = findViewById(R.id.photoshop);
         boolean software = editSoftware.isChecked();
         if(software){
+            score = score + 2;
+        }
+
+        //question 4
+        boolean checked = ((RadioButton) view).isSelected();
+
+        if (checked){
             score = score + 2;
         }
 
@@ -46,17 +54,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
-        //Question 4
-//        RadioGroup rad = findViewById(R.id.interest);
-//        if ((rad.getCheckedRadioButtonId(R.id.interest) == 0){
-//
-//        }
-
-
-        String PriceMessage = questionSummary(question1, question2);
-        displayMessage(PriceMessage);
-
-        Toast.makeText(this, "Total Score is "+ score, Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Total Score is "+ score +"/10", Toast.LENGTH_SHORT).show();
 
 
 
@@ -82,17 +80,28 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    //Question 4
+//    public void onRadioClick(View view) {
+//        // check if the button is checked
+//        boolean checked = ((RadioButton) view).isChecked();
+//
+//        // Check which radio button was clicked
+//        switch(view.getId()) {
+//            case R.id.yes:
+//                if (checked)
+//                    score = score + 2;
+//                break;
+//            case R.id.no:
+//                if (checked)
+//                    score = score + 2;
+//                break;
+//        }
+//    }
+
     private void displayMessage(String message) {
         TextView orderSummaryTextView = (TextView) findViewById(R.id.question_scores);
         orderSummaryTextView.setText(message);
     }
 
-    //score preview
-    private String questionSummary(int question1, int question2){
-
-        String summary = "First score: " + question1;
-        summary += "Second Score: "+ question2;
-        return summary;
-
-    }
+   
 }
