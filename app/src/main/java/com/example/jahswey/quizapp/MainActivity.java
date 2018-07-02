@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         // check if the button is checked
         boolean checked = ((RadioButton) view).isChecked();
 
-        // CQuestion 4
+        /** CQuestion 4
         switch(view.getId()) {
             case R.id.yes:
                 if (checked)
@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
                     score = score + 2;
                 break;
         }
+        **/
 
         //Question3
         CheckBox editSoftware = findViewById(R.id.photoshop);
